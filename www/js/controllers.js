@@ -1,16 +1,22 @@
 var app = angular.module('starter.controllers', []);
 
-app.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
+app.controller('AppCtrl', function ($scope, $ionicModal, $timeout, transport, cookies) {
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function (modal) {
-    $scope.modal = modal;
+    $scope.loginModal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/signup.html', {
+    scope: $scope
+  }).then(function (modal) {
+    $scope.signupModal = modal;
   });
 
   // Form data for the login modal
   $scope.loginData = {};
-  $scope.isLoggedin = false;
+  $scope.isLoggedin = cookies.has(TOKEN_ID_KEY);
 
   $scope.$watch('isLoggedin', function (nVal) {
     if (!!nVal) {
@@ -20,21 +26,50 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
     }
   });
   /**
-   * Login
-   * @returns {*}
+   * Hide login
    */
   $scope.hideLogin = function () {
-    if (!$scope.modal) {
+    if (!$scope.loginModal) {
       return $timeout($scope.hideLogin, 50);
     }
-    $scope.modal.hide();
+    $scope.signupModal.hide();
+    $scope.loginModal.hide();
   };
   // Open the login modal
   $scope.login = function () {
-    if (!$scope.modal) {
+    if (!$scope.loginModal) {
       return $timeout($scope.login, 50);
     }
-    $scope.modal.show();
+    $scope.signupModal.hide();
+    $scope.loginModal.show();
+  };
+
+  // Open the signup modal
+  $scope.signup = function ($event) {
+    console.log("signup", $event);
+    if (!$scope.signupModal) {
+      return $timeout($scope.signup, 50);
+    }
+    $scope.loginModal.hide();
+    $scope.signupModal.show();
+  };
+
+  $scope.createUser = function () {
+    transport.createUser({
+      username: $scope.loginData.username,
+      password: $scope.loginData.password,
+      email: $scope.loginData.email
+    }).then(null, function(error) {
+      console.log("error", error);
+    }, function(data) {
+      if (data.error) {
+        $scope.loginData.error = true;
+        $scope.loginData.message = data.message;
+      } else {
+        cookies.set(TOKEN_ID_KEY, data.token, parseInt(data.expires));
+        $scope.isLoggedin = true;
+      }
+    });
   };
 
   // do fake login for now
@@ -43,11 +78,38 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
   };
 
   $scope.doLogin = function () {
-    $scope.isLoggedin = true;
+    transport.logIn({
+      username: $scope.loginData.username,
+      password: $scope.loginData.password
+    }).then(null, function(error) {
+      console.log("error", error);
+    }, function(data) {
+      if (data.error) {
+        $scope.loginData.error = true;
+        $scope.loginData.message = data.message;
+      } else {
+        $scope.isLoggedin = true;
+      }
+    });
   };
 
 });
 
+app.controller('ProfileCtrl', function ($scope, transport, cookies) {
+
+  $scope.userData = {};
+
+  if ($scope.isLoggedin) {
+    transport.getUser({
+      access_token: cookies.get(TOKEN_ID_KEY)
+    }).then(null, null, function(result) {
+      $scope.userData = result;
+
+      console.log('get user', result, $scope);
+    })
+  }
+
+});
 app.controller('StocksCtrl', function ($scope, $http) {
   $http.get('js/stocks.json').then(function (response) {
     $scope.stocks = response.data;
