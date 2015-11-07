@@ -19,7 +19,10 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
       $scope.login();
     }
   });
-
+  /**
+   * Login
+   * @returns {*}
+   */
   $scope.hideLogin = function () {
     if (!$scope.modal) {
       return $timeout($scope.hideLogin, 50);

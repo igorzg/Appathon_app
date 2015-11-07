@@ -1,7 +1,7 @@
 <ion-view view-title="Portfolio">
   <ion-content>
-      <ion-list class="list card">
-        <ion-item ng-repeat="stock in stocks" href="#/user/stocks/{{stock.id}}">
+      <ion-list type="card">
+        <ion-item ng-repeat="stock in stocks">
           {{stock.title}} {{stock.value.current}}
         </ion-item>
       </ion-list>
