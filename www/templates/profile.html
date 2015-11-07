@@ -2,6 +2,9 @@
   <ion-content>
     <form ng-submit="change()">
       <div class="list">
+        <div class="item item-divider">
+          User data
+        </div>
         <label class="item item-input">
           <span class="input-label">Name</span>
           <input type="text" ng-model="userData.name">
@@ -18,9 +21,32 @@
           <span class="input-label">Password</span>
           <input type="password" ng-model="userData.password">
         </label>
+        <div class="item item-divider">
+          Address
+        </div>
         <label class="item item-input">
-          <span class="input-label">Adress</span>
-          <input type="password" ng-model="userData.adress">
+          <span class="input-label">City</span>
+          <input type="text" ng-model="userData.adress.city">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Company</span>
+          <input type="text" ng-model="userData.adress.company">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Country</span>
+          <input type="text" ng-model="userData.adress.country">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Street</span>
+          <input type="text" ng-model="userData.adress.street">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Street2</span>
+          <input type="text" ng-model="userData.adress.street2">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Vat</span>
+          <input type="text" ng-model="userData.adress.vat">
         </label>
         <label class="item">
           <button class="button button-block button-positive" type="submit">Submit</button>

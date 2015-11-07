@@ -95,16 +95,18 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $timeout, transport, co
 
 });
 
-app.controller('ProfileCtrl', function ($scope, transport, cookies) {
+app.controller('ProfileCtrl', function ($scope, transport, cookies, $ionicLoading) {
 
   $scope.userData = {};
-
   if ($scope.isLoggedin) {
+    $ionicLoading.show({
+      template: 'MyShare...'
+    });
     transport.getUser({
       access_token: cookies.get(TOKEN_ID_KEY)
     }).then(null, null, function(result) {
+      $ionicLoading.hide();
       $scope.userData = result;
-
       console.log('get user', result, $scope);
     })
   }
