@@ -1,0 +1,31 @@
+<ion-view view-title="Profile">
+  <ion-content>
+    <form ng-submit="change()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="userData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">E-mail</span>
+          <input type="text" ng-model="userData.email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Phone</span>
+          <input type="text" ng-model="userData.phone">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="userData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Adress</span>
+          <input type="password" ng-model="userData.adress">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Submit</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

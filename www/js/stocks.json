@@ -1,0 +1,332 @@
+[
+  {
+    "title": "Adidas NA",
+    "value": {
+      "current": 87.71,
+      "last day": 88.51,
+      "change": -0.91,
+      "highest": 89.57,
+      "lowest": 53.70
+    },
+    "id": 1
+  },
+  {
+    "title": "Allianz SE vNA",
+    "value": {
+      "current": 157.11,
+      "last day": 159.89,
+      "change": -1.77,
+      "highest": 170.34,
+      "lowest": 129.58
+    },
+    "id": 2
+  },
+  {
+    "title": "BASF NA",
+    "value": {
+      "current": 77.44,
+      "last day": 75.80,
+      "change": 2.12,
+      "highest": 97.20,
+      "lowest": 64.40
+    },
+    "id": 3
+  },
+  {
+    "title": "Bayer NA",
+    "value": {
+      "current": 123.48,
+      "last day": 122.75,
+      "change": 0.59,
+      "highest": 146.26,
+      "lowest": 106.50
+    },
+    "id": 4
+  },
+  {
+    "title": "Beiersdorf",
+    "value": {
+      "current": 89.00,
+      "last day": 88.87,
+      "change": 0.15,
+      "highest": 89.00,
+      "lowest": 65.43
+    },
+    "id": 5
+  },
+  {
+    "title": "BMW St.",
+    "value": {
+      "current": 96.00,
+      "last day": 92.64,
+      "change": 3.50,
+      "highest": 123.70,
+      "lowest": 72.40
+    },
+    "id": 6
+  },
+  {
+    "title": "Commerzbank",
+    "value": {
+      "current": 10.68,
+      "last day": 10.50,
+      "change": 1.69,
+      "highest": 13.38,
+      "lowest": 9.07
+    },
+    "id": 7
+  },
+  {
+    "title": "Continental",
+    "value": {
+      "current": 224.71,
+      "last day": 221.80,
+      "change": 1.30,
+      "highest": 234.15,
+      "lowest": 151.72
+    },
+    "id": 8
+  },
+  {
+    "title": "Daimler NA",
+    "value": {
+      "current": 79.91,
+      "last day": 78.26,
+      "change": 2.06,
+      "highest": 96.01,
+      "lowest": 60.22
+    },
+    "id": 9
+  },
+  {
+    "title": "Deutsche Bank NA",
+    "value": {
+      "current": 25.73,
+      "last day": 25.31,
+      "change": 1.63,
+      "highest": 33.41,
+      "lowest": 22.99
+    },
+    "id": 10
+  },
+  {
+    "title": "Deutsche Bˆrse",
+    "value": {
+      "current": 82.25,
+      "last day": 80.69,
+      "change": 1.90,
+      "highest": 87.41,
+      "lowest": 54.47
+    },
+    "id": 11
+  },
+  {
+    "title": "Deutsche Post NA",
+    "value": {
+      "current": 27.56,
+      "last day": 27.19,
+      "change": 1.34,
+      "highest": 31.13,
+      "lowest": 22.99
+    },
+    "id": 12
+  },
+  {
+    "title": "Deutsche Telekom NA",
+    "value": {
+      "current": 16.78,
+      "last day": 16.60,
+      "change": 1.07,
+      "highest": 17.63,
+      "lowest": 11.97
+    },
+    "id": 13
+  },
+  {
+    "title": "E.ON NA",
+    "value": {
+      "current": 9.68,
+      "last day": 9.70,
+      "change": -0.21,
+      "highest": 15.47,
+      "lowest": 7.09
+    },
+    "id": 14
+  },
+  {
+    "title": "Fresenius M.C.St.",
+    "value": {
+      "current": 81.94,
+      "last day": 81.46,
+      "change": 0.59,
+      "highest": 83.26,
+      "lowest": 56.48
+    },
+    "id": 15
+  },
+  {
+    "title": "Fresenius SE&Co",
+    "value": {
+      "current": 68.10,
+      "last day": 66.68,
+      "change": 2.09,
+      "highest": 68.72,
+      "lowest": 40.39
+    },
+    "id": 16
+  },
+  {
+    "title": "HeidelbergCement",
+    "value": {
+      "current": 71.73,
+      "last day": 70.40,
+      "change": 1.85,
+      "highest": 77.11,
+      "lowest": 54.90
+    },
+    "id": 17
+  },
+  {
+    "title": "Henkel Vz.",
+    "value": {
+      "current": 97.31,
+      "last day": 99.53,
+      "change": -2.28,
+      "highest": 115.75,
+      "lowest": 79.36
+    },
+    "id": 18
+  },
+  {
+    "title": "Infineon NA",
+    "value": {
+      "current": 11.29,
+      "last day": 11.17,
+      "change": 1.06,
+      "highest": 12.51,
+      "lowest": 7.51
+    },
+    "id": 19
+  },
+  {
+    "title": "K+S NA",
+    "value": {
+      "current": 24.42,
+      "last day": 24.43,
+      "change": -0.04,
+      "highest": 40.18,
+      "lowest": 21.85
+    },
+    "id": 20
+  },
+  {
+    "title": "Linde",
+    "value": {
+      "current": 164.21,
+      "last day": 162.55,
+      "change": 1.01,
+      "highest": 195.00,
+      "lowest": 140.03
+    },
+    "id": 21
+  },
+  {
+    "title": "Lufthansa vNA",
+    "value": {
+      "current": 13.88,
+      "last day": 13.69,
+      "change": 1.37,
+      "highest": 15.51,
+      "lowest": 10.25
+    },
+    "id": 22
+  },
+  {
+    "title": "Merck",
+    "value": {
+      "current": 90.41,
+      "last day": 89.34,
+      "change": 1.18,
+      "highest": 112.34,
+      "lowest": 69.67
+    },
+    "id": 23
+  },
+  {
+    "title": "M¸nch. R¸ck vNA",
+    "value": {
+      "current": 179.35,
+      "last day": 180.53,
+      "change": -0.66,
+      "highest": 206.55,
+      "lowest": 152.84
+    },
+    "id": 24
+  },
+  {
+    "title": "RWE St.",
+    "value": {
+      "current": 13.37,
+      "last day": 13.32,
+      "change": 0.37,
+      "highest": 29.78,
+      "lowest": 9.16
+    },
+    "id": 25
+  },
+  {
+    "title": "SAP SE",
+    "value": {
+      "current": 72.99,
+      "last day": 73.77,
+      "change": -1.07,
+      "highest": 74.05,
+      "lowest": 52.94
+    },
+    "id": 26
+  },
+  {
+    "title": "Siemens NA",
+    "value": {
+      "current": 93.82,
+      "last day": 92.65,
+      "change": 1.25,
+      "highest": 106.31,
+      "lowest": 77.76
+    },
+    "id": 27
+  },
+  {
+    "title": "ThyssenKrupp",
+    "value": {
+      "current": 18.55,
+      "last day": 18.21,
+      "change": 1.83,
+      "highest": 26.41,
+      "lowest": 14.95
+    },
+    "id": 28
+  },
+  {
+    "title": "Volkswagen Vz.",
+    "value": {
+      "current": 97.70,
+      "last day": 98.40,
+      "change": -0.72,
+      "highest": 262.28,
+      "lowest": 86.46
+    },
+    "id": 29
+  },
+  {
+    "title": "Vonovia",
+    "value": {
+      "current": 29.71,
+      "last day": 29.90,
+      "change": -0.64,
+      "highest": 33.64,
+      "lowest": 23.36
+    },
+    "id": 30
+  }
+]
