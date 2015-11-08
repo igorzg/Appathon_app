@@ -128,6 +128,26 @@ app.controller('ProfileCtrl', function ($scope, transport, cookies, $ionicLoadin
   }
 });
 
+
+app.controller('MyAccountsCtrl', function ($scope, transport, cookies, $ionicLoading) {
+  $scope.accounts = [];
+  $scope.showSpinner = function () {
+    $ionicLoading.show({
+      template: '<ion-spinner  icon="lines"></ion-spinner>'
+    });
+  };
+  if ($scope.isLoggedin) {
+    $scope.showSpinner();
+    transport.getAccounts({
+      access_token: cookies.get(TOKEN_ID_KEY)
+    }).then(null, null, function(result) {
+      $ionicLoading.hide();
+      $scope.accounts = result;
+      console.log('get getAccounts', result, $scope);
+    });
+  }
+});
+
 app.controller('AccountCtrl', function ($scope, transport, cookies, $ionicLoading) {
   $scope.accounts = [];
   $scope.showSpinner = function () {
@@ -151,16 +171,18 @@ app.controller('AccountCtrl', function ($scope, transport, cookies, $ionicLoadin
 app.controller('AccountCtrlLink', function ($scope, transport, cookies, $location) {
   $scope.bankData = {};
   $scope.link = function() {
-    transport.linkBank({
+    var data = {
       access_token: cookies.get(TOKEN_ID_KEY),
-      bankCode: $scope.bankData.bank_code,
+      bank_code: $scope.bankData.bank_code,
       credentials: [
         $scope.bankData.username,
         $scope.bankData.password
       ],
       // save_pin: true,
-      countryCode: "de"
-    }).then(null, null, function(result) {
+      country_code: "de"
+    };
+
+    transport.linkBank(data).then(null, null, function(result) {
       //$location.url('/#/user/accounts');
       console.log('link account', result, $scope);
     });

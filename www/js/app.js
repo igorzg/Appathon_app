@@ -309,7 +309,7 @@
         views: {
           'menuContent': {
             templateUrl: 'templates/accounts.html',
-            controller: 'AccountCtrl'
+            controller: 'MyAccountsCtrl'
           }
         }
       })
@@ -325,14 +325,7 @@
         }
       })
 
-      .state('app.redeemcode', {
-        url: '/redeemcode',
-        views: {
-          'menuContent': {
-            templateUrl: 'templates/redeemcode.html'
-          }
-        }
-      })
+
       .state('app.stocks', {
         url: '/stocks',
         views: {

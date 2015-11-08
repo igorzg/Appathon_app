@@ -2,6 +2,7 @@
   <ion-content>
     <form ng-submit="change()">
       <div class="list">
+
         <div class="item item-divider">
           User data
         </div>
@@ -51,6 +52,26 @@
         <label class="item">
           <button class="button button-block button-positive" type="submit">Submit</button>
         </label>
+        <div class="item item-divider" >
+          Linked bank accounts
+        </div>
+        <div ng-controller="AccountCtrl">
+          <div ng-show="accounts.length > 0">
+            <ion-list type="card">
+              <ion-item ng-repeat="account in accounts">
+                {{account.account_id}} {{account.name}} {{account.bank_name}}
+              </ion-item>
+            </ion-list>
+          </div>
+          <div class="card" ng-hide="accounts.length > 0">
+            <div class="item item-text-wrap">
+              You don't have linked bank accounts!
+            </div>
+          </div>
+          <div class="item">
+            <a class="button button-block button-positive" href="#/user/link-account">Link bank account</a>
+          </div>
+        </div>
       </div>
     </form>
   </ion-content>
