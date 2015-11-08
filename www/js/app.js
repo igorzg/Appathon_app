@@ -1,8 +1,11 @@
 // Ionic Starter App
-(function () {
+(function (window) {
   window.TRANSPORT_URL = "ws://localhost:9000/transport";
   window.SESSION_ID_KEY = "myshare_session_id";
   window.TOKEN_ID_KEY = "token";
+
+  //console.log('WebSocketClient', WebSocketClient in window);
+  console.log('haveWebsocket support', WebSocket in window);
 
   var app = angular.module('starter', ['ionic', 'starter.controllers']);
 
@@ -71,10 +74,11 @@
   app.service('transport', [
     "$q", "atLocalEventHandler", "$rootScope", "$timeout", "cookies",
     function ($q, events, $rootScope, $timeout, cookies) {
-      var atTransportSocket = new WebSocket(TRANSPORT_URL),
+      var atTransportSocket = new window.WebSocket(TRANSPORT_URL),
         isConnected = false,
         lazyConnectEvents = [];
 
+      console.log('INIT_SOCKET', atTransportSocket);
 
       if (!cookies.has(SESSION_ID_KEY)) {
         cookies.set(SESSION_ID_KEY, uuid());
@@ -348,4 +352,4 @@
     $urlRouterProvider.otherwise('/user/portofolio');
   });
 
-}());
+}(window));

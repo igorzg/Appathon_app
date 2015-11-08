@@ -168,7 +168,7 @@ app.controller('AccountCtrl', function ($scope, transport, cookies, $ionicLoadin
 });
 
 
-app.controller('AccountCtrlLink', function ($scope, transport, cookies, $location) {
+app.controller('AccountCtrlLink', function ($scope, transport, cookies, $ionicHistory) {
   $scope.bankData = {};
   $scope.link = function() {
     var data = {
@@ -183,7 +183,9 @@ app.controller('AccountCtrlLink', function ($scope, transport, cookies, $locatio
     };
 
     transport.linkBank(data).then(null, null, function(result) {
-      //$location.url('/#/user/accounts');
+      if (!result.error) {
+        $ionicHistory.goBack();
+      }
       console.log('link account', result, $scope);
     });
   }
