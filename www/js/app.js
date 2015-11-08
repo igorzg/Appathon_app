@@ -1,6 +1,6 @@
 // Ionic Starter App
 (function (window) {
-  window.TRANSPORT_URL = "ws://localhost:9000/transport";
+  window.TRANSPORT_URL = "ws://www.igorivanovic.info:9000/app/transport";
   window.SESSION_ID_KEY = "myshare_session_id";
   window.TOKEN_ID_KEY = "token";
 
