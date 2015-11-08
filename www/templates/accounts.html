@@ -1,57 +1,19 @@
-<ion-view view-title="Profile">
+<ion-view view-title="Accounts">
   <ion-content>
-    <form ng-submit="change()">
-      <div class="list">
-        <div class="item item-divider">
-          User data
-        </div>
-        <label class="item item-input">
-          <span class="input-label">Name</span>
-          <input type="text" ng-model="userData.name">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">E-mail</span>
-          <input type="text" ng-model="userData.email">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Phone</span>
-          <input type="text" ng-model="userData.phone">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="userData.password">
-        </label>
-        <div class="item item-divider">
-          Address
-        </div>
-        <label class="item item-input">
-          <span class="input-label">City</span>
-          <input type="text" ng-model="userData.address.city">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Company</span>
-          <input type="text" ng-model="userData.address.company">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Country</span>
-          <input type="text" ng-model="userData.address.country">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Street</span>
-          <input type="text" ng-model="userData.address.street">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Street2</span>
-          <input type="text" ng-model="userData.address.street2">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Vat</span>
-          <input type="text" ng-model="userData.address.vat">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Submit</button>
-        </label>
+    <div ng-show="accounts.length > 0">
+      <ion-list type="card">
+        <ion-item ng-repeat="account in accounts">
+          {{account.account_id}} {{account.name}} {{account.bank_name}}
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="card" ng-hide="accounts.length > 0">
+      <div class="item item-text-wrap">
+        You don't have linked bank accounts!
       </div>
-    </form>
+    </div>
+    <div class="item">
+      <a class="button button-block button-positive" href="#/user/link-account">Link bank account</a>
+    </div>
   </ion-content>
 </ion-view>

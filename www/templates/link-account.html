@@ -1,0 +1,26 @@
+<ion-view cache-view="false" view-title="Link account">
+  <ion-content>
+    <form ng-submit="link()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Bank code</span>
+          <input type="text" ng-model="bankData.bank_code">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="bankData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="bankData.password">
+        </label>
+        <label class="item bar bar-assertive" ng-if="bankData.error">
+          {{bankData.message}}
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Link</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

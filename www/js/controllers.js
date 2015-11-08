@@ -99,7 +99,7 @@ app.controller('ProfileCtrl', function ($scope, transport, cookies, $ionicLoadin
   $scope.userData = {};
   $scope.showSpinner = function () {
     $ionicLoading.show({
-      template: 'MyShare...'
+      template: '<ion-spinner icon="lines"></ion-spinner>'
     });
   };
   if ($scope.isLoggedin) {
@@ -128,11 +128,45 @@ app.controller('ProfileCtrl', function ($scope, transport, cookies, $ionicLoadin
   }
 });
 
-app.controller('AccountCtrl', function ($scope, $http) {
-  $http.get('js/stocks.json').then(function (response) {
-    $scope.stocks = response.data;
-  });
+app.controller('AccountCtrl', function ($scope, transport, cookies, $ionicLoading) {
+  $scope.accounts = [];
+  $scope.showSpinner = function () {
+    $ionicLoading.show({
+      template: '<ion-spinner  icon="lines"></ion-spinner>'
+    });
+  };
+  if ($scope.isLoggedin) {
+    $scope.showSpinner();
+    transport.getAccounts({
+      access_token: cookies.get(TOKEN_ID_KEY)
+    }).then(null, null, function(result) {
+      $ionicLoading.hide();
+      $scope.accounts = result;
+      console.log('get getAccounts', result, $scope);
+    });
+  }
 });
+
+
+app.controller('AccountCtrlLink', function ($scope, transport, cookies, $location) {
+  $scope.bankData = {};
+  $scope.link = function() {
+    transport.linkBank({
+      access_token: cookies.get(TOKEN_ID_KEY),
+      bank_code: $scope.bankData.bank_code,
+      credentials: [
+        $scope.bankData.username,
+        $scope.bankData.password
+      ],
+      save_pin: true,
+      country: "de"
+    }).then(null, null, function(result) {
+      $location.url('/#/user/accounts');
+      console.log('link account', result, $scope);
+    });
+  }
+});
+
 
 app.controller('StocksCtrl', function ($scope, $http) {
   $http.get('js/stocks.json').then(function (response) {

@@ -203,6 +203,8 @@
        * Return api
        */
       return {
+        linkBank: createEvent("linkBank"),
+        getAccounts: createEvent("getAccounts"),
         getUser: createEvent("getUser"),
         createUser: createEvent("createUser"),
         logIn: createEvent("logIn"),
@@ -298,6 +300,27 @@
           'menuContent': {
             templateUrl: 'templates/profile.html',
             controller: 'ProfileCtrl'
+          }
+        }
+      })
+
+      .state('app.account', {
+        url: '/account',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/accounts.html',
+            controller: 'AccountCtrl'
+          }
+        }
+      })
+
+      .state('app.link', {
+        url: '/link-account',
+        cache: false,
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/link-account.html',
+            controller: 'AccountCtrlLink'
           }
         }
       })

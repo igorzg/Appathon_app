@@ -1,7 +1,7 @@
 {
-  "name": "appathon",
+  "name": "MyShare",
   "version": "1.1.1",
-  "description": "Appathon: An Ionic project",
+  "description": "MyShare app for stock sharing",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
