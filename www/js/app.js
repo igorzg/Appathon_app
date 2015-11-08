@@ -40,30 +40,16 @@
      */
     return {
       set: function (name, value, secs) {
-        if (secs) {
-          var date = new Date();
-          date.setTime(date.getTime() + ( secs * 1000 ));
-          var expires = "; expires=" + date.toGMTString();
-        } else {
-          var expires = "";
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
+        window.localStorage.setItem(name, value);
       },
       get: function (name) {
-        var cn = name + "=";
-        var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-          if (c.indexOf(cn) == 0) return c.substring(cn.length, c.length);
-        }
-        return null;
+        return window.localStorage.getItem(name);
       },
       has: function (name) {
         return this.get(name) !== null;
       },
       clear: function (name) {
-        this.set(name, "", -1);
+        return window.localStorage.removeItem(name);
       }
     };
   });

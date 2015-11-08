@@ -157,14 +157,16 @@ app.controller('AccountCtrl', function ($scope, transport, cookies, $ionicLoadin
   };
   if ($scope.isLoggedin) {
     $scope.showSpinner();
-    transport.getAccounts({
-      access_token: cookies.get(TOKEN_ID_KEY)
-    }).then(null, null, function(result) {
-      $ionicLoading.hide();
-      $scope.accounts = result;
-      console.log('get getAccounts', result, $scope);
-    });
   }
+
+  transport.getAccounts({
+    access_token: cookies.get(TOKEN_ID_KEY)
+  }).then(null, null, function(result) {
+    $ionicLoading.hide();
+    $scope.accounts = result;
+    console.log('get getAccounts', result, $scope);
+  });
+
 });
 
 
