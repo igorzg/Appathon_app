@@ -96,22 +96,44 @@ app.controller('AppCtrl', function ($scope, $ionicModal, $timeout, transport, co
 });
 
 app.controller('ProfileCtrl', function ($scope, transport, cookies, $ionicLoading) {
-
   $scope.userData = {};
-  if ($scope.isLoggedin) {
+  $scope.showSpinner = function () {
     $ionicLoading.show({
       template: 'MyShare...'
     });
+  };
+  if ($scope.isLoggedin) {
+    $scope.showSpinner();
     transport.getUser({
       access_token: cookies.get(TOKEN_ID_KEY)
     }).then(null, null, function(result) {
       $ionicLoading.hide();
       $scope.userData = result;
       console.log('get user', result, $scope);
-    })
-  }
+    });
 
+    $scope.change = function () {
+      $scope.showSpinner();
+
+      var data = angular.extend({
+        access_token: cookies.get(TOKEN_ID_KEY)
+      }, $scope.userData);
+      console.log('update user data', data);
+      transport.updateUser(data).then(null, null, function(result) {
+        $ionicLoading.hide();
+        $scope.userData = result;
+        console.log('update user result', result, $scope);
+      })
+    }
+  }
 });
+
+app.controller('AccountCtrl', function ($scope, $http) {
+  $http.get('js/stocks.json').then(function (response) {
+    $scope.stocks = response.data;
+  });
+});
+
 app.controller('StocksCtrl', function ($scope, $http) {
   $http.get('js/stocks.json').then(function (response) {
     $scope.stocks = response.data;

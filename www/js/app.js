@@ -205,7 +205,8 @@
       return {
         getUser: createEvent("getUser"),
         createUser: createEvent("createUser"),
-        logIn: createEvent("logIn")
+        logIn: createEvent("logIn"),
+        updateUser: createEvent("updateUser")
       };
     }
   ]);
