@@ -153,15 +153,15 @@ app.controller('AccountCtrlLink', function ($scope, transport, cookies, $locatio
   $scope.link = function() {
     transport.linkBank({
       access_token: cookies.get(TOKEN_ID_KEY),
-      bank_code: $scope.bankData.bank_code,
+      bankCode: $scope.bankData.bank_code,
       credentials: [
         $scope.bankData.username,
         $scope.bankData.password
       ],
-      save_pin: true,
-      country: "de"
+      // save_pin: true,
+      countryCode: "de"
     }).then(null, null, function(result) {
-      $location.url('/#/user/accounts');
+      //$location.url('/#/user/accounts');
       console.log('link account', result, $scope);
     });
   }
